@@ -1,0 +1,65 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+	margin:2%;
+}
+
+
+h1, h2, h3 {
+	font-family: 'Rajdhani', sans-serif;
+	margin-bottom: 1%;
+	margin-top:2%;
+}
+
+h1 {
+	font-size: 2.5em;
+}
+
+h2 {
+	font-size: 2em;
+}
+
+p {
+	font-size: 1.2em;
+	line-height: 1.5em;
+	margin-bottom: 2%;
+}
+
+#instructions {
+	width:60%;
+	margin-bottom: 2%;
+}
+
+#compare {
+	border:1px solid #ccc;
+	width:20%;
+	padding:2%;
+	float:left;
+	margin-right:3%;
+}
+
+
+
+#crystals {
+	float:left;
+}
+
+#crystals img {
+	width:10%;
+	border:1px solid #ccc;
+	margin-right:1%;
+}
+
+/*footer {
+	padding:5px;
+	clear:both;
+	background:#666;
+	color:#fff;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
+
+footer p {
+	margin: 5px;
+}*/
