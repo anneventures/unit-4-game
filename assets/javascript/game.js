@@ -1,19 +1,85 @@
 $(document).ready(function() {
   
-  //VARIABLES
-
+  	//VARIABLES	
 	var wins = 0;
 	var losses = 0;
+	var counter = 0;
+	var crystals = $("#crystals");
+	var randomNum = Math.floor(Math.random() * 120) + 19;
 
-	var userTotal = 0;
+	$('#randomNum').text(randomNum);
 
-	var randomNum = Math.floor((Math.random() * 100) + 5);
+	var allCrystals = ["orange", "blue", "green", "pink"];
 
-	var orange = Math.floor((Math.random() * 10) + 1);
-	var blue = Math.floor((Math.random() * 10) + 1);
-	var green = Math.floor((Math.random() * 10) + 1);
-	var pink = Math.floor((Math.random() * 10) + 1);
+		for (var colour in allCrystals) {
 
-    $("#randomNum").append(randomNum);
+			var randomValue = Math.floor(Math.random() * 12) + 1;
 
-    });
+			var selector = "#" + allCrystals[colour];
+
+			$(selector).attr("data-value", randomValue);
+
+		}
+
+	
+	 function reset() {
+
+	 	 randomNum = Math.floor(Math.random() * 120) + 19;
+
+	 	$('#randomNum').text(randomNum);
+
+	 allCrystals = ["orange", "blue", "green", "pink"];
+
+
+		for (var colour in allCrystals) {
+
+			var randomValue = Math.floor(Math.random() * 12) + 1;
+
+			var selector = "#" + allCrystals[colour];
+
+			$(selector).attr("data-value", randomValue);
+
+		}
+		
+        counter = 0;
+
+	 	$('#totalScore').text(counter);
+
+	 };
+
+	 function win() {
+	 	alert("You win!");
+	 	wins++;
+	 	$('#wins').text(wins);
+	 	reset();	
+	 }
+
+	 function lose() {
+		alert("You lose!!");
+		losses++;
+		$('#losses').text(losses);
+		reset();
+	 }
+
+	crystals.on("click", ".crystalImage", function() {
+
+		var crystalValue = ($(this).attr("data-value"));
+    	
+    	crystalValue = parseInt(crystalValue);
+
+    	counter+=crystalValue;
+
+		$('#totalScore').text(counter);
+
+	    if (counter === randomNum) {
+			win();
+	     }
+
+	     else if (counter > randomNum) {
+	     	lose();
+	     }
+
+  	});		
+
+
+});
